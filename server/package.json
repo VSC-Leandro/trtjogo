@@ -1,0 +1,14 @@
+{
+  "name": "territorio-server",
+  "version": "0.3.0",
+  "private": true,
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "dev": "node server.js",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}

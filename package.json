@@ -1,0 +1,13 @@
+{
+  "name": "territorio",
+  "version": "0.3.0",
+  "private": true,
+  "description": "Território — jogo solarpunk de regeneração (protótipo alpha)",
+  "scripts": {
+    "dev": "concurrently -n client,server -c green,blue \"npm --prefix client run dev\" \"npm --prefix server run dev\"",
+    "install:all": "npm install && npm --prefix client install && npm --prefix server install"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

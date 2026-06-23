@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Território — alpha</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- MENU -->
+  <div id="screen-menu" class="screen active">
+    <div class="menu-wrap">
+      <svg class="radar r1" viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="100" cy="100" r="20"/><circle cx="100" cy="100" r="42"/><circle cx="100" cy="100" r="64"/><circle cx="100" cy="100" r="86"/><circle cx="118" cy="74" r="3" fill="currentColor" stroke="none"/><circle cx="64" cy="120" r="3" fill="currentColor" stroke="none"/></svg>
+      <svg class="radar r2" viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="100" cy="100" r="28"/><circle cx="100" cy="100" r="56"/><circle cx="100" cy="100" r="84"/></svg>
+      <p class="eyebrow">Pós-colapso climático · solarpunk</p>
+      <h1 class="wordmark">TERRITÓRIO</h1>
+      <p class="tagline">Reverdecer um mundo ferido, um território de cada vez. Guie uma comunidade que cura a terra e a faz viver de novo.</p>
+      <div class="menu-actions">
+        <button class="btn btn-primary" onclick="go('create')">Regenerar</button>
+        <button class="btn btn-ghost" disabled>Continuar</button>
+        <button class="btn btn-ghost" disabled>Opções</button>
+      </div>
+      <div class="menu-foot">protótipo alpha · v0.3 · Queimados</div>
+    </div>
+  </div>
+
+  <!-- CREATE -->
+  <div id="screen-create" class="screen">
+    <div class="create-wrap">
+      <div class="panel">
+        <h1>Quem vai guiar a regeneração?</h1>
+        <p class="sub">As escolhas aqui moldam como você começa a curar a terra.</p>
+        <p class="field-label">Identidade</p>
+        <div class="row">
+          <input type="text" id="nome" placeholder="Nome" autocomplete="off" />
+          <input type="text" id="sobrenome" placeholder="Sobrenome" autocomplete="off" />
+        </div>
+        <div class="seg" id="seg-genero">
+          <button class="seg-opt" data-v="Homem">Homem</button>
+          <button class="seg-opt" data-v="Mulher">Mulher</button>
+          <button class="seg-opt" data-v="Não binário">Não binário</button>
+        </div>
+        <p class="field-label">Personalidade</p>
+        <div class="cards" id="cards-pers">
+          <button class="card" data-v="Aventureiro"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></svg><p class="ct">Aventureiro</p><p class="cd">Bônus na exploração do mapa</p></button>
+          <button class="card" data-v="Resiliente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l7 3v5c0 4-3 7-7 8-4-1-7-4-7-8V6z"/></svg><p class="ct">Resiliente</p><p class="cd">Bônus em recursos e clima extremo</p></button>
+          <button class="card" data-v="Criativo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-4 10c.7.7 1 1.4 1 2h6c0-.6.3-1.3 1-2a6 6 0 0 0-4-10z"/></svg><p class="ct">Criativo</p><p class="cd">Bônus em saberes e aprendizado</p></button>
+        </div>
+        <p class="field-label">Bioma</p>
+        <div class="biomes" id="biomes">
+          <button class="biome sel" data-v="Mata Atlântica"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 19c0-7 5-12 14-12 0 9-5 14-12 14-1 0-2-1-2-2z"/><path d="M9 15c2-2 4-3 6-4"/></svg>Mata Atlântica</button>
+          <button class="biome locked" disabled><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="5" y="11" width="14" height="9" rx="1"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Pampas</button>
+          <button class="biome locked" disabled><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="5" y="11" width="14" height="9" rx="1"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Cerrado</button>
+          <button class="biome locked" disabled><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="5" y="11" width="14" height="9" rx="1"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Caatinga</button>
+          <button class="biome locked" disabled><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="5" y="11" width="14" height="9" rx="1"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Amazônia</button>
+          <button class="biome locked" disabled><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="5" y="11" width="14" height="9" rx="1"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Pantanal</button>
+        </div>
+        <div class="create-actions">
+          <button class="back-link" onclick="go('menu')">← Voltar</button>
+          <button class="btn btn-primary" style="width:auto" onclick="startGame()">Começar a comunidade</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAP -->
+  <div id="screen-map" class="screen">
+    <div class="hud">
+      <span class="brand">TERRITÓRIO</span>
+      <div class="clock">
+        <span class="season-pill" id="seasonPill">Primavera</span>
+        <span class="date" id="dateLabel">Ano 1 · Dia 1</span>
+        <div class="tickctl">
+          <button class="icon-btn" id="playBtn" onclick="togglePlay()" aria-label="Avançar o tempo"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button>
+          <div class="speed">
+            <button class="spd sel" data-s="1" onclick="setSpeed(1)">1x</button>
+            <button class="spd" data-s="2" onclick="setSpeed(2)">2x</button>
+            <button class="spd" data-s="3" onclick="setSpeed(3)">3x</button>
+          </div>
+        </div>
+      </div>
+      <div class="resources">
+        <span class="res"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3c4 5 6 8 6 11a6 6 0 0 1-12 0c0-3 2-6 6-11z"/></svg>Água <b id="rAgua">12</b></span>
+        <span class="res"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 19c0-7 5-12 14-12 0 9-5 14-12 14-1 0-2-1-2-2z"/></svg>Alimento <b id="rAlim">8</b></span>
+        <span class="res"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l8 4v10l-8 4-8-4V7z"/><path d="M12 3v18M4 7l8 4 8-4"/></svg>Materiais <b id="rMat">5</b></span>
+        <span class="res"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 5h7v15H6a2 2 0 0 1-2-2z"/><path d="M20 5h-7v15h5a2 2 0 0 0 2-2z"/></svg>Saberes <b id="rSab">3</b></span>
+        <button class="icon-btn" style="width:auto;padding:0 10px;font-size:12px;gap:5px" onclick="saveGame()" title="Salvar partida no servidor">Salvar</button>
+      </div>
+    </div>
+
+    <div class="map-stage" id="viewport">
+      <div class="world" id="world"></div>
+      <div class="map-label"><b>Queimados</b> · Mata Atlântica</div>
+      <div class="tool-rail">
+        <button class="tool" title="Regenerar terreno" onclick="regenerar()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 19c0-7 5-12 14-12 0 9-5 14-12 14-1 0-2-1-2-2z"/><path d="M9 15c2-2 4-3 6-4"/></svg></button>
+        <button class="tool" title="Saberes" onclick="tool('Saberes')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 5h7v15H6a2 2 0 0 1-2-2z"/><path d="M20 5h-7v15h5a2 2 0 0 0 2-2z"/></svg></button>
+        <button class="tool" title="Comunidade" onclick="tool('Comunidade')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="9" r="3"/><circle cx="17" cy="10" r="2.4"/><path d="M3 19c0-3 3-5 6-5s6 2 6 5M15 18c0-2 2-3.5 4-3.5s3 1.2 3 3"/></svg></button>
+        <button class="tool" title="Construir" onclick="tool('Construir')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l8 4v10l-8 4-8-4V7z"/></svg></button>
+      </div>
+
+      <div class="tile-panel" id="tilePanel" style="display:none">
+        <p class="tp-name" id="tpName">—</p>
+        <p class="tp-state" id="tpState"><span class="dot"></span><span id="tpStateLabel">—</span></p>
+        <p class="tp-hint" id="tpHint"></p>
+      </div>
+
+      <div class="char-panel">
+        <div class="char-head">
+          <div class="avatar" id="avatar">IM</div>
+          <div><p class="nm" id="charName">Iara da Mata</p><p class="mt" id="charMeta">Mulher · Criativo</p></div>
+        </div>
+        <p class="bonus" id="charBonus"><span>Criativo:</span> aprende saberes mais rápido.</p>
+      </div>
+
+      <div class="zoomctl">
+        <button onclick="zoomBtn(1.3)" aria-label="Aproximar">+</button>
+        <button onclick="zoomBtn(1/1.3)" aria-label="Afastar">&minus;</button>
+        <button onclick="resetView()" title="Centralizar" aria-label="Centralizar" style="font-size:15px">&#8634;</button>
+      </div>
+
+      <div class="legend">
+        <span><i style="background:#7C5C4C"></i>Ferida</span>
+        <span><i style="background:#C9962F"></i>Em recuperação</span>
+        <span><i style="background:#5DE08A"></i>Viva</span>
+        <span><i style="background:#3A8DA0"></i>Água</span>
+        <span><i style="background:#2E7D4F"></i>Mata</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
